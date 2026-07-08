@@ -1,0 +1,314 @@
+/* --- BRUSHED OBSIDIAN BACKGROUND --- */
+body {
+    background: repeating-linear-gradient(to right, #2d2f36, #2d2f36 2px, #353840 2px, #353840 4px);
+    background-color: #2d2f36; 
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    margin-top: 3%;
+}
+
+/* --- THE NEON BREATHING PULSE --- */
+@keyframes neonPulse {
+    0% {
+        filter: drop-shadow(0 0 10px rgba(138, 43, 226, 0.4)); 
+        transform: scale(1);
+    }
+    50% {
+        filter: drop-shadow(0 0 30px rgba(0, 210, 255, 0.9)); 
+        transform: scale(1.05); 
+    }
+    100% {
+        filter: drop-shadow(0 0 10px rgba(138, 43, 226, 0.4));
+        transform: scale(1);
+    }
+}
+
+/* --- LOGO STYLING --- */
+.main-logo {
+    width: 300px; 
+    height: auto;
+    margin-bottom: 20px;
+    animation: neonPulse 3s infinite alternate ease-in-out;
+}
+
+/* --- TYPOGRAPHY --- */
+/* Cyber blue text with electric violet gradient neon glow (Comment Fixed) */ 
+h3.cyber-tagline { 
+    color: #00d2ff; 
+    font-weight: 300; 
+    font-size: 1.5rem; 
+    text-shadow: 0 0 10px rgba(0, 210, 255, 0.8), 0 0 20px rgba(138, 43, 226, 0.6); 
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #a0aab5;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+}
+
+.section-heading {
+    color: #ffffff;
+    font-size: 1.3rem;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    text-shadow: 0 0 8px rgba(255,255,255,0.3);
+}
+
+/* --- VT OG SPECIALTIES GRID --- */
+.specialties-grid {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+    margin-top: 20px;
+    padding: 0 20px;
+}
+
+.node-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 140px;
+}
+
+.node-container p {
+    font-size: 0.75rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-top: 15px;
+    line-height: 1.4;
+    color: #e0e0e0;
+}
+
+/* The Glowing Circular Nodes */
+.glowing-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #2a2c33;
+    border: 2px solid #00d2ff;
+    box-shadow: 0 0 20px rgba(0, 210, 255, 0.8), inset 0 0 15px rgba(138, 43, 226, 0.6);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.glowing-circle i {
+    font-size: 2.5rem; 
+    color: #f3f4f6; 
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.4); 
+    transition: text-shadow 0.3s ease;
+}
+
+.glowing-circle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(0, 210, 255, 1), inset 0 0 25px rgba(138, 43, 226, 0.9);
+    cursor: pointer;
+}
+
+.glowing-circle:hover i {
+    text-shadow: 0 0 15px #00d2ff;
+}
+
+/* --- HAMBURGER MENU (VT OG Style) --- */
+.cyber-nav {
+    position: relative;
+    display: block;
+    margin-bottom: 20px;
+    z-index: 100; 
+}
+
+/* Menu Button perfectly matches the 5 nodes */
+.hamburger-icon {
+    color: #ffffff; 
+    font-size: 1.5rem;
+    cursor: pointer;
+    width: 60px; 
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto; 
+    background: #1a1a1c; 
+    border: 2px solid #00d2ff; 
+    border-radius: 50%; 
+    box-shadow: 0 0 15px rgba(0, 210, 255, 0.5), inset 0 0 10px rgba(0, 210, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.hamburger-icon:hover {
+    box-shadow: 0 0 25px rgba(0, 210, 255, 0.9), inset 0 0 15px rgba(0, 210, 255, 0.6);
+    transform: scale(1.05); 
+}
+
+/* The Slide Animation */
+@keyframes menuSlideDown {
+    from { opacity: 0; transform: translate(-50%, -15px); }
+    to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+/* The Frosted Glass Dropdown Box */
+.nav-dropdown {
+    display: none; 
+    position: absolute;
+    top: 130%; 
+    left: 50%;
+    transform: translateX(-50%); 
+    min-width: 240px; 
+    background-color: rgba(26, 26, 28, 0.85); 
+    backdrop-filter: blur(10px); 
+    border: 1px solid #8a2be2; 
+    border-radius: 8px; 
+    box-shadow: 0 8px 25px rgba(138, 43, 226, 0.5); 
+    text-align: center;
+    overflow: hidden; 
+    animation: menuSlideDown 0.3s ease-out forwards;
+}
+
+/* Link Overrides (Kills the messy blue hyperlinks) */
+.nav-dropdown a {
+    color: #a0aab5 !important; 
+    padding: 15px 20px;
+    text-decoration: none !important; 
+    display: block;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent; 
+}
+
+.nav-dropdown a:hover {
+    color: #ffffff !important; 
+    background-color: rgba(0, 210, 255, 0.1); 
+    border-left: 3px solid #00d2ff; 
+    text-shadow: 0 0 8px #00d2ff; 
+}
+
+.menu-divider {
+    height: 1px;
+    background: rgba(138, 43, 226, 0.3); 
+    margin: 10px 15px; 
+}
+
+/* --- VT OG STYLE FOOTER --- */
+.cyber-footer {
+    margin-top: 60px;
+    padding-bottom: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.social-links {
+    display: flex;
+    gap: 30px; 
+}
+
+.social-icon {
+    color: #a0aab5 !important; 
+    font-size: 2rem;
+    text-decoration: none !important; 
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    color: #00d2ff !important; 
+    text-shadow: 0 0 15px rgba(0, 210, 255, 0.8), 0 0 25px rgba(138, 43, 226, 0.6);
+    transform: translateY(-5px); 
+}
+
+/* --- MOBILE RESPONSIVENESS --- */
+@media (max-width: 768px) {
+    /* Allows the 5 specialty nodes to stack neatly on smaller screens */
+    .specialties-grid {
+        display: flex;
+        flex-wrap: wrap; /* NEW: Tells the circles they are allowed to drop to the next line */
+        justify-content: center;
+        align-items: flex-start;
+        gap: 30px;
+        margin-top: 20px;
+        padding: 0 20px;
+    }
+
+    /* Scales the logo down so it breathes on mobile */
+    .main-logo {
+        width: 80%; 
+        max-width: 250px;
+    }
+
+    /* Shrinks the tagline text slightly to prevent awkward line breaks */
+    h3.cyber-tagline {
+        font-size: 1.2rem;
+        padding: 0 15px;
+    }
+
+    /* Adjusts the footer icons to be slightly closer together */
+    .social-links {
+        gap: 20px; 
+    }
+}
+
+/* --- AI BUTTON BREATHING PULSE --- */
+@keyframes aiPulse {
+    0% {
+        box-shadow: 0 0 10px rgba(0, 210, 255, 0.3), inset 0 0 5px rgba(0, 210, 255, 0.2);
+    }
+    50% {
+        box-shadow: 0 0 25px rgba(0, 210, 255, 0.9), inset 0 0 15px rgba(138, 43, 226, 0.6);
+    }
+    100% {
+        box-shadow: 0 0 10px rgba(0, 210, 255, 0.3), inset 0 0 5px rgba(0, 210, 255, 0.2);
+    }
+}
+
+/* --- FLOATING AI CHATBOT BUTTON --- */
+.ai-chat-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 65px;
+    height: 65px;
+    background-color: #1a1a1c; /* Deep Charcoal */
+    border: 2px solid #00d2ff; /* Cyber Blue border */
+    border-radius: 50%; /* Perfect circle */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 999; /* Ensures it floats above all other content */
+    
+    /* NEW: Replaced the static box-shadow with the infinite pulse animation */
+    animation: aiPulse 2.5s infinite ease-in-out;
+    transition: transform 0.3s ease;
+}
+
+.ai-chat-button i {
+    color: #ffffff;
+    font-size: 1.8rem;
+    transition: text-shadow 0.3s ease;
+}
+
+.ai-chat-button:hover {
+    box-shadow: 0 0 25px rgba(0, 210, 255, 0.9), inset 0 0 15px rgba(0, 210, 255, 0.6);
+    transform: scale(1.1); /* Pops up slightly on hover */
+}
+
+.ai-chat-button:hover i {
+    text-shadow: 0 0 15px #00d2ff; /* Icon glows blue on hover */
+}
+
+/* Optional: Make it slightly smaller on mobile screens so it isn't in the way */
+@media (max-width: 768px) {
+    .ai-chat-button {
+        bottom: 20px;
+        right: 20px;
+        width: 55px;
+        height: 55px;
+    }
+    .ai-chat-button i {
+        font-size: 1.5rem;
+    }
+}

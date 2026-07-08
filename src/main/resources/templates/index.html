@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vairotech Portfolio</title>
+    <!-- FontAwesome for the Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Thymeleaf CSS Link -->
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+    <!-- Main Glowing Logo -->
+    <img th:src="@{/images/VT logo.png}" alt="Vairotech Logo" class="main-logo">
+
+    <!-- Cyber Hamburger Menu -->
+    <div class="cyber-nav">
+        <!-- VT OG Style Circular Button -->
+        <div class="hamburger-icon" onclick="toggleMenu()">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+        
+        <!-- The Frosted Glass Dropdown -->
+        <div class="nav-dropdown" id="navDropdown">
+            <a th:href="@{/projects}" onclick="closeMenu()">Project Showcase</a>
+            <a th:href="@{/about}" onclick="closeMenu()">System Architecture</a>
+            
+            <!-- Now this opens your readable web CV! -->
+            <a th:href="@{/myCV}" onclick="closeMenu()">Interactive CV</a>
+
+            <a href="https://wa.me/qr/6LGR2HE7CTEMJ1" target="_blank">
+                <i class="fa-brands fa-whatsapp"></i> WhatsApp
+            </a>
+            <a href="https://www.linkedin.com/in/tapiwanashe-mutsvairo-6bb804331" target="_blank">
+                <i class="fa-brands fa-linkedin"></i> LinkedIn
+            </a>
+            <a href="https://github.com/Man-mutsv23" target="_blank">
+                <i class="fa-brands fa-github"></i> GitHub
+            </a>
+        </div>
+            
+
+            
+
+        </div>
+    </div>
+
+    <!-- The Authentic Tagline -->
+    <h3 class="cyber-tagline">This website was created on the basis of making really cool stuff!</h3>
+    <p class="subtitle">CORE SOFTWARE ENGINEERING &amp; ARCHITECTURE PORTFOLIO</p>
+    
+    <h2 class="section-heading">VAIROTECH SPECIALTIES:</h2>
+
+    <!-- The 5 Glowing Nodes (Matches VT OG Exactly) -->
+    <div class="specialties-grid">
+        <div class="node-container">
+            <div class="glowing-circle"><i class="fa-solid fa-network-wired"></i></div>
+            <p>ADVANCED<br>ARCHITECTURE<br>DESIGN</p>
+        </div>
+        
+        <div class="node-container">
+            <div class="glowing-circle"><i class="fa-solid fa-code"></i></div>
+            <p>CROSS-PLATFORM<br>DEVELOPMENT</p>
+        </div>
+        
+        <div class="node-container">
+            <div class="glowing-circle"><i class="fa-solid fa-cubes"></i></div>
+            <p>CONTAINERIZATION<br>&amp; DEPLOYMENT</p>
+        </div>
+        
+        <div class="node-container">
+            <div class="glowing-circle"><i class="fa-solid fa-database"></i></div>
+            <p>SYSTEM DESIGN &amp;<br>DOCUMENTATION</p>
+        </div>
+        
+        <div class="node-container">
+            <div class="glowing-circle"><i class="fa-solid fa-laptop-code"></i></div>
+            <p>WEB APPLICATION<br>DEVELOPMENT</p>
+        </div>
+    </div>
+
+    <!-- The VT OG Minimalist Footer -->
+    <footer class="cyber-footer">
+        <div class="social-links">
+            <a href="https://wa.me/qr/6LGR2HE7CTEMJ1" target="_blank" class="social-icon">
+                <i class="fa-brands fa-whatsapp"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/tapiwanashe-mutsvairo-6bb804331" target="_blank" class="social-icon">
+                <i class="fa-brands fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/Man-mutsv23" target="_blank" class="social-icon">
+                <i class="fa-brands fa-github"></i>
+            </a>
+        </div>
+    </footer>
+
+    <!-- NEW: FLOATING AI CHATBOT BUTTON -->
+    <div class="ai-chat-button" onclick="toggleChatWindow()">
+        <i class="fa-solid fa-robot"></i>
+    </div>
+
+    <!-- JavaScript for the Auto-Closing Menu -->
+    <script>
+        function toggleMenu() {
+            const dropdown = document.getElementById("navDropdown");
+            if (dropdown.style.display === "block") {
+                dropdown.style.display = "none";
+            } else {
+                dropdown.style.display = "block";
+            }
+        }
+
+        function closeMenu() {
+            document.getElementById("navDropdown").style.display = "none";
+        }
+    </script>
+</body>
+</html>

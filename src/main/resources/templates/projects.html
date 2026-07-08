@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Showcase | Vairotech</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+    <h1 class="metallic-title" style="font-size: 3rem; margin-top: 10%;">PROJECT SHOWCASE</h1>
+    <h3 class="cyber-tagline">Deployed Software & Hybrid-Hardware Systems</h3>
+    
+    <!<!-- DYNAMIC PROJECT GRID -->
+    <div class="specialties-grid" style="margin-top: 40px; gap: 40px;">
+        
+        <div th:each="project : ${projects}" style="width: 300px; background-color: rgba(26, 26, 28, 0.85); border: 1px solid #8a2be2; border-radius: 10px; padding: 25px; box-shadow: 0 8px 25px rgba(138, 43, 226, 0.3); text-align: left; backdrop-filter: blur(10px);">
+            
+            <h3 th:text="${project.title}" style="color: #00d2ff; margin-top: 0; margin-bottom: 15px; font-size: 1.4rem; text-shadow: 0 0 10px rgba(0, 210, 255, 0.6);">
+                Project Title
+            </h3>
+            
+            <p th:text="${project.description}" style="color: #a0aab5; line-height: 1.5; font-size: 0.95rem; margin-bottom: 25px;">
+                Project Description...
+            </p>
+            
+            <a th:href="@{${project.githubUrl}}" target="_blank" style="color: #ffffff; text-decoration: none; padding: 10px 20px; background: #1a1a1c; border: 1px solid #00d2ff; border-radius: 5px; font-weight: bold; transition: all 0.3s ease; display: inline-block;">
+                <i class="fa-brands fa-github"></i> View Code
+            </a>
+        </div>
+
+    <!-- Glowing Return Button -->
+    <div style="margin-top: 80px;">
+        <a th:href="@{/}" style="color: #ffffff; text-decoration: none; padding: 15px 30px; border: 1px solid #00d2ff; border-radius: 5px; background: #1a1a1c; box-shadow: 0 0 15px rgba(0, 210, 255, 0.4); font-weight: bold; letter-spacing: 2px;">
+            RETURN HOME
+        </a>
+    </div>
+
+</body>
+   
+</html>

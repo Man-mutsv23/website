@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Tapiwanashe M. Mutsvairo | Software Engineer CV</title>
+    <!-- Link to your existing cyber-neon stylesheet -->
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Extra formatting to make the CV look official and highly readable */
+        .cv-wrapper {
+            max-width: 900px; 
+            margin: 0 auto; 
+            background-color: rgba(26, 26, 28, 0.95); 
+            border: 1px solid #353840; 
+            border-top: 4px solid #8a2be2;
+            border-radius: 8px; 
+            padding: 50px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            text-align: left;
+        }
+        .cv-header { border-bottom: 2px solid #333; padding-bottom: 20px; margin-bottom: 30px; display: flex; justify-content: space-between; align-items: flex-start; }
+        .cv-section-title { color: #00d2ff; font-size: 1.4rem; border-bottom: 1px solid #333; padding-bottom: 5px; margin-top: 40px; margin-bottom: 20px; letter-spacing: 1px; text-transform: uppercase; }
+        .contact-info a { color: #a0aab5; text-decoration: none; margin-right: 15px; font-size: 0.9rem; transition: color 0.3s ease; }
+        .contact-info a:hover { color: #00d2ff; }
+        .job-title { color: #f3f4f6; font-size: 1.1rem; font-weight: bold; margin-bottom: 2px; }
+        .job-meta { color: #8a2be2; font-size: 0.9rem; font-style: italic; margin-bottom: 10px; }
+        .job-desc { color: #b0bac5; font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; padding-left: 15px; border-left: 2px solid #353840; }
+        .skill-badge { display: inline-block; background: #1a1a1c; border: 1px solid #00d2ff; color: #00d2ff; padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; margin: 0 5px 10px 0; font-weight: bold; }
+        
+        /* Styled buttons for transcripts/certificates */
+        .doc-button {
+            display: inline-block; background-color: #1a1a1c; color: #f3f4f6; border: 1px solid #8a2be2; 
+            padding: 8px 15px; border-radius: 5px; text-decoration: none; font-size: 0.9rem; margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+        .doc-button:hover { background-color: #8a2be2; color: #ffffff; box-shadow: 0 0 10px rgba(138, 43, 226, 0.5); }
+    </style>
+</head>
+<body style="background-color: #121317; color: #ffffff; padding: 40px 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+
+    <div class="cv-wrapper">
+        
+        <!-- HEADER -->
+        <div class="cv-header">
+            <div>
+                <h1 style="color: #f3f4f6; margin: 0 0 5px 0; font-size: 2.8rem; letter-spacing: 2px;">TAPIWANASHE M. MUTSVAIRO</h1>
+                <h3 style="color: #00d2ff; margin: 0 0 15px 0; font-weight: 400; font-size: 1.2rem;">SOFTWARE ENGINEER & SYSTEMS ARCHITECT</h3>
+                
+                <div class="contact-info">
+                    <a href="mailto:mutsvairotm18@gmail.com"><i class="fa-solid fa-envelope"></i> mutsvairotm18@gmail.com</a>
+                    <a href="#"><i class="fa-solid fa-phone"></i> +27 (0) 82 474 4204</a>
+                    <a href="https://github.com/Man-mutsv23" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+                    <a href="https://linkedin.com/in/vairo-tech" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+                    <a href="#"><i class="fa-solid fa-location-dot"></i> Cape Town, ZA</a>
+                </div>
+            </div>
+            
+            <!-- EXPORT TO PDF BUTTON -->
+            <a th:href="@{/download-cv}" style="background-color: #00d2ff; color: #121317; padding: 12px 24px; text-decoration: none; font-weight: bold; border-radius: 5px; box-shadow: 0 0 15px rgba(0, 210, 255, 0.4); transition: all 0.3s ease;">
+                <i class="fa-solid fa-file-pdf"></i> Export PDF
+            </a>
+        </div>
+
+        <!-- PROFESSIONAL SUMMARY -->
+        <h2 class="cv-section-title">Professional Summary</h2>
+        <p style="color: #a0aab5; line-height: 1.7; font-size: 1rem;">
+            Passionate and results-driven Information Technology student specializing in Software Engineering, with a proven track record of designing, building, and deploying robust backend architectures and full-stack solutions. Adept at transforming complex operational problems into scalable digital systems using Java, Python, and modern containerized ecosystems. 
+        </p>
+
+        <!-- TECHNICAL SKILLS -->
+        <h2 class="cv-section-title">Core Technical Capabilities</h2>
+        <div style="margin-bottom: 20px;">
+            <span class="skill-badge">Java (Spring Boot, JavaFX)</span>
+            <span class="skill-badge">Python (FastAPI, Streamlit)</span>
+            <span class="skill-badge">C#</span>
+            <span class="skill-badge">PostgreSQL & SQLite</span>
+            <span class="skill-badge">Docker Containerization</span>
+            <span class="skill-badge">Thymeleaf</span>
+            <span class="skill-badge">Git & CI/CD Pipelines</span>
+            <span class="skill-badge">Embedded Systems (ESP32)</span>
+        </div>
+
+        <!-- EXPERIENCE -->
+        <h2 class="cv-section-title">Professional Experience</h2>
+        
+        <div class="job-title">Junior Backend Engineer / Contractor</div>
+        <div class="job-meta">Vairo Tech | Cape Town, South Africa | 2025 – Present</div>
+        <div class="job-desc">
+            • Architected and managed custom Spring Boot enterprise backend microservices utilizing Thymeleaf template engines, enhancing client-side data rendering speeds by 25%.<br>
+            • Designed dynamic and high-performance cross-platform desktop interfaces using JavaFX, successfully linking lightweight embedded databases (SQLite and H2).<br>
+            • Streamlined deployment processes by containerizing development workflows using Docker, reducing environment configuration errors by 40% across distributed engineering squads.
+        </div>
+
+        <div class="job-title">Software Engineering Solutions Intern</div>
+        <div class="job-meta">Tech Solutions Enterprise | Remote / Cape Town | 2024 – 2025</div>
+        <div class="job-desc">
+            • Built robust automation pipelines utilizing n8n and Python scripts to bridge disparate internal databases, eliminating manual logging and cutting processing latencies in half.<br>
+            • Configured, optimized, and managed relational databases utilizing PostgreSQL and SQLite, executing database normalization practices that dramatically improved indexing and query performances.
+        </div>
+
+        <div class="job-title">Sound Engineer Assistant</div>
+        <div class="job-meta">Every Nation Baxter & Celebration Ministries | Cape Town & Harare | 2022 – Present</div>
+        <div class="job-desc">
+            • Managed audio setup and mixing for weekly services and major conferences, ensuring optimal sound quality and demonstrating strong high-pressure operational reliability.
+        </div>
+
+        <!-- DYNAMIC PROJECTS (Pulled from your database!) -->
+        <h2 class="cv-section-title">Core System Deployments</h2>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+            <div th:each="project : ${projects}" style="background-color: #1a1a1c; border: 1px solid #353840; padding: 20px; border-radius: 8px;">
+                <h3 th:text="${project.title}" style="color: #00d2ff; margin-top: 0; margin-bottom: 10px; font-size: 1.1rem;">Project Title</h3>
+                <p th:text="${project.description}" style="color: #b0bac5; font-size: 0.9rem; line-height: 1.5; margin-bottom: 15px;">Description...</p>
+                <a th:href="@{${project.githubUrl}}" target="_blank" style="color: #8a2be2; font-size: 0.85rem; text-decoration: none; font-weight: bold;">
+                    <i class="fa-brands fa-github"></i> View Architecture
+                </a>
+            </div>
+        </div>
+
+        <!-- EDUCATION & CREDENTIALS -->
+        <h2 class="cv-section-title">Education, Credentials & Transcripts</h2>
+        
+        <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+            <div>
+                <div class="job-title">BCompSc in Information Technology</div>
+                <div class="job-meta">Eduvos (Mowbray Campus) | Expected Graduation: 2028</div>
+            </div>
+            <div>
+                <!-- Add your transcript PDF to src/main/resources/static/assets/ -->
+                <a href="/assets/BCompSc_Transcript.pdf" target="_blank" class="doc-button"><i class="fa-solid fa-file-lines"></i> View Transcript</a>
+            </div>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+            <div>
+                <div class="job-title">Higher Certificate in Information Systems (Software Dev)</div>
+                <div class="job-meta">Eduvos Campus | Completed: March 2026</div>
+            </div>
+            <div>
+                <a href="/assets/Higher_Cert_Certificate.pdf" target="_blank" class="doc-button"><i class="fa-solid fa-award"></i> View Certificate</a>
+            </div>
+        </div>
+
+        <!-- ACHIEVEMENTS -->
+        <h2 class="cv-section-title">Hackathons & Achievements</h2>
+        <div class="job-desc" style="border: none; padding-left: 0;">
+            • <strong>Google Cloud Rapid Agent Hackathon (2026):</strong> Participant & Solution Builder.<br>
+            • <strong>Build with MeDo Hackathon (2026):</strong> Innovator & Core Contributor.
+        </div>
+
+    </div>
+
+</body>
+</html>
