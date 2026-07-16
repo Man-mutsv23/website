@@ -95,9 +95,28 @@
         </div>
     </footer>
 
-    <!-- NEW: FLOATING AI CHATBOT BUTTON -->
-    <div class="ai-chat-button" onclick="toggleChatWindow()">
-        <i class="fa-solid fa-robot"></i>
+    <!-- VAIROTECH FLOATING AI CHAT MODULE -->
+    <button id="chatToggleBtn" class="floating-chat-btn" onclick="toggleChat()">
+        <i class="fas fa-robot"></i> <!-- The Robot Icon from your design! -->
+    </button>
+
+    <div class="ai-chat-container" id="aiChatWidget" style="display: none;">
+        <div class="chat-header" style="display: flex; justify-content: space-between; align-items: center;">
+            <div>
+                <h3 class="cyber-tagline" style="margin: 0; font-size: 1.2rem;">Vairo AI Assistant</h3>
+                <p class="subtitle" style="margin: 5px 0 10px 0; font-size: 0.8rem;">Ask about Tapiwa's architecture.</p>
+            </div>
+            <button onclick="toggleChat()" class="close-chat-btn">✖</button>
+        </div>
+        
+        <div class="chat-box" id="chatBox">
+            <p class="ai-message"><strong>Vairo AI:</strong> Systems online. How can I help you today?</p>
+        </div>
+        
+        <div class="chat-input-area">
+            <input type="text" id="chatInput" placeholder="Type your query here..." onkeypress="handleKeyPress(event)">
+            <button onclick="sendMessage()" class="cyber-button">SEND</button>
+        </div>
     </div>
 
     <!-- JavaScript for the Auto-Closing Menu -->
@@ -114,6 +133,16 @@
         function closeMenu() {
             document.getElementById("navDropdown").style.display = "none";
         }
+
+        // Toggle the chat window open and closed
+    function toggleChat() {
+        const chatWidget = document.getElementById('aiChatWidget');
+        if (chatWidget.style.display === 'none' || chatWidget.style.display === '') {
+            chatWidget.style.display = 'block';
+        } else {
+            chatWidget.style.display = 'none';
+        }
+    }
     </script>
 </body>
 </html>

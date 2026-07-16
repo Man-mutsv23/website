@@ -312,3 +312,32 @@ h3.cyber-tagline {
         font-size: 1.5rem;
     }
 }
+
+/* --- THE POP-UP CHAT WINDOW --- */
+.ai-chat-container {
+    position: fixed;
+    bottom: 110px; /* Sits perfectly just above your pulsing button */
+    right: 30px;
+    width: 380px;
+    z-index: 1000;
+    background-color: #121317;
+    border: 1px solid #00d2ff;
+    box-shadow: 0 0 20px rgba(0, 210, 255, 0.4), inset 0 0 10px rgba(138, 43, 226, 0.2);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: left;
+}
+
+.close-chat-btn {
+    background: none;
+    border: none;
+    color: #a0aab5;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-chat-btn:hover {
+    color: #ff4c4c; /* Subtle red glow when closing */
+    text-shadow: 0 0 8px #ff4c4c;
+}
