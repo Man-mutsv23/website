@@ -3,6 +3,7 @@ package com.vairotech.website.controller;
 import com.vairotech.website.model.Project;
 import com.vairotech.website.repository.ProjectRepository;
 import com.vairotech.website.service.CVGenService;
+
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -10,6 +11,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.io.ByteArrayInputStream;
 import java.util.List;
@@ -76,6 +81,17 @@ public class portfolioController {
         .headers(headers)
         .contentType(MediaType.APPLICATION_PDF)
         .body(new InputStreamResource(pdfStream));
+
+    }
+
+    @RestController
+    
+    public class HealthController {
+        
+        @GetMapping("/api/health")
+        public ResponseEntity<String> healthCheck() {
+            return ResponseEntity.ok("VAIROTECH Spring Boot Server is awake!");
+        }
 
     }
     

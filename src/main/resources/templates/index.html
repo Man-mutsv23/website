@@ -96,8 +96,20 @@
     </footer>
 
     <!-- VAIROTECH FLOATING AI CHAT MODULE -->
-    <button id="chatToggleBtn" class="floating-chat-btn" onclick="toggleChat()">
-        <i class="fas fa-robot"></i> <!-- The Robot Icon from your design! -->
+    <button id="chatToggleBtn" class="ai-chat-button" onclick="toggleChat()">
+        <!-- Custom Premium SVG Robot Icon -->
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="custom-robot-icon">
+            <!-- Antenna & Glow -->
+            <path d="M12 2V6" stroke="#f3f4f6" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="12" cy="2" r="2" fill="#00d2ff" filter="drop-shadow(0 0 4px #00d2ff)"/>
+            <!-- Robot Head -->
+            <rect x="4" y="6" width="16" height="14" rx="4" stroke="#f3f4f6" stroke-width="2" fill="#121317"/>
+            <!-- Cyber Blue Eyes -->
+            <circle cx="8.5" cy="12" r="1.5" fill="#00d2ff" filter="drop-shadow(0 0 3px #00d2ff)"/>
+            <circle cx="15.5" cy="12" r="1.5" fill="#00d2ff" filter="drop-shadow(0 0 3px #00d2ff)"/>
+            <!-- Voice Wave Mouth -->
+            <path d="M9 16H15" stroke="#f3f4f6" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
     </button>
 
     <div class="ai-chat-container" id="aiChatWidget" style="display: none;">
@@ -106,6 +118,7 @@
                 <h3 class="cyber-tagline" style="margin: 0; font-size: 1.2rem;">Vairo AI Assistant</h3>
                 <p class="subtitle" style="margin: 5px 0 10px 0; font-size: 0.8rem;">Ask about Tapiwa's architecture.</p>
             </div>
+            <!-- The X button to close the chat -->
             <button onclick="toggleChat()" class="close-chat-btn">✖</button>
         </div>
         
@@ -135,14 +148,85 @@
         }
 
         // Toggle the chat window open and closed
-    function toggleChat() {
-        const chatWidget = document.getElementById('aiChatWidget');
-        if (chatWidget.style.display === 'none' || chatWidget.style.display === '') {
-            chatWidget.style.display = 'block';
-        } else {
-            chatWidget.style.display = 'none';
+        function toggleChat() {
+            const chatWidget = document.getElementById('aiChatWidget');
+            if (chatWidget.style.display === 'none' || chatWidget.style.display === '') {
+                chatWidget.style.display = 'block';
+            } else {
+                chatWidget.style.display = 'none';
+            }
         }
-    }
+
+        // Send message to the Java Backend -> Python AI
+        async function sendMessage() {
+            console.log("1. SEND button was clicked!"); // Diagnostic Trap 1
+
+            const inputField = document.getElementById('chatInput');
+            const chatBox = document.getElementById('chatBox');
+            
+            // Check if the HTML elements actually exist
+            if (!inputField || !chatBox) {
+                console.error("CRITICAL ERROR: Could not find 'chatInput' or 'chatBox' in the HTML!");
+                return;
+            }
+
+            const message = inputField.value.trim();
+
+            if (!message) {
+                console.log("2. Message is empty, ignoring click."); // Diagnostic Trap 2
+                return; 
+            }
+
+            console.log("3. Message captured:", message);
+
+            // Display the User's message on the right
+            chatBox.innerHTML += `<div class="chat-bubble user-message">${message}</div>`;
+            inputField.value = ''; // Clear the input box
+            chatBox.scrollTop = chatBox.scrollHeight; // Auto-scroll to bottom
+
+            // Add a temporary "Thinking..." bubble on the left
+            const thinkingId = 'thinking-' + Date.now();
+            chatBox.innerHTML += `<div class="chat-bubble ai-message" id="${thinkingId}"><em>Thinking...</em></div>`;
+            chatBox.scrollTop = chatBox.scrollHeight;
+
+            try {
+                console.log("4. Attempting to fetch from Java backend..."); // Diagnostic Trap 3
+                
+                const response = await fetch('/api/internal/ask', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ message: message })
+                });
+
+                console.log("5. Response received from Java, parsing JSON..."); // Diagnostic Trap 4
+                const data = await response.json();
+
+                // Remove the "Thinking..." bubble and display the actual AI reply
+                document.getElementById(thinkingId).remove();
+                
+                if (data.reply) {
+                    chatBox.innerHTML += `<div class="chat-bubble ai-message">${data.reply}</div>`;
+                    console.log("6. Success! Message rendered.");
+                } else {
+                    chatBox.innerHTML += `<div class="chat-bubble ai-message" style="color: #ff4c4c; border-color: #ff4c4c;">Error: No reply received from Python.</div>`;
+                }
+
+            } catch (error) {
+                console.error('7. Fetch failed!', error); // Diagnostic Trap 5
+                document.getElementById(thinkingId).remove();
+                chatBox.innerHTML += `<div class="chat-bubble ai-message" style="color: #ff4c4c; border-color: #ff4c4c;">System Error: The Polyglot Bridge is currently unreachable.</div>`;
+            }
+            
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        // Allow the user to press "Enter" to send the message
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
     </script>
+    
 </body>
 </html>

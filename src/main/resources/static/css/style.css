@@ -264,52 +264,55 @@ h3.cyber-tagline {
     }
 }
 
-/* --- FLOATING AI CHATBOT BUTTON --- */
+/* --- FLOATING AI CHATBOT BUTTON (MATCHING CONCEPT IMAGE) --- */
 .ai-chat-button {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    width: 65px;
-    height: 65px;
-    background-color: #1a1a1c; /* Deep Charcoal */
-    border: 2px solid #00d2ff; /* Cyber Blue border */
-    border-radius: 50%; /* Perfect circle */
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, #121317, #1a1a1c); /* Deep metallic void */
+    border: 2px solid #00d2ff; /* Crisp Cyber Blue border */
+    border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    z-index: 999; /* Ensures it floats above all other content */
+    z-index: 1000;
     
-    /* NEW: Replaced the static box-shadow with the infinite pulse animation */
+    /* Your breathing pulse animation */
     animation: aiPulse 2.5s infinite ease-in-out;
-    transition: transform 0.3s ease;
-}
-
-.ai-chat-button i {
-    color: #ffffff;
-    font-size: 1.8rem;
-    transition: text-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .ai-chat-button:hover {
-    box-shadow: 0 0 25px rgba(0, 210, 255, 0.9), inset 0 0 15px rgba(0, 210, 255, 0.6);
-    transform: scale(1.1); /* Pops up slightly on hover */
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(0, 210, 255, 1), inset 0 0 20px rgba(0, 210, 255, 0.6);
 }
 
-.ai-chat-button:hover i {
-    text-shadow: 0 0 15px #00d2ff; /* Icon glows blue on hover */
+/* Custom SVG Icon Styling */
+.custom-robot-icon {
+    width: 35px;
+    height: 35px;
+    filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.4));
+    transition: all 0.3s ease;
 }
 
-/* Optional: Make it slightly smaller on mobile screens so it isn't in the way */
+.ai-chat-button:hover .custom-robot-icon {
+    filter: drop-shadow(0 0 8px #00d2ff); /* Icon glows blue on hover */
+}
+
+/* Optional: Mobile responsiveness */
 @media (max-width: 768px) {
     .ai-chat-button {
         bottom: 20px;
         right: 20px;
-        width: 55px;
-        height: 55px;
+        width: 60px;
+        height: 60px;
     }
-    .ai-chat-button i {
-        font-size: 1.5rem;
+    .custom-robot-icon {
+        width: 30px;
+        height: 30px;
     }
 }
 
@@ -340,4 +343,89 @@ h3.cyber-tagline {
 .close-chat-btn:hover {
     color: #ff4c4c; /* Subtle red glow when closing */
     text-shadow: 0 0 8px #ff4c4c;
+}
+
+/* ---  TEXTING INTERFACE (THE BUBBLES) --- */
+.chat-box {
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* Spacing between text bubbles */
+    height: 300px;
+    overflow-y: auto;
+    background-color: #0d0e12;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #333;
+}
+
+.chat-box p {
+    margin: 0;
+}
+
+.chat-bubble {
+    max-width: 80%;
+    padding: 10px 15px;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    word-wrap: break-word;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+/* User Bubble (Aligned Right) */
+.user-message {
+    align-self: flex-end;
+    background-color: #2a2c33; 
+    color: #f3f4f6; 
+    border: 1px solid #555;
+    border-bottom-right-radius: 2px; /* Sharp corner for texting tail */
+}
+
+/* AI Bubble (Aligned Left) */
+.ai-message {
+    align-self: flex-start;
+    background: linear-gradient(135deg, rgba(0, 210, 255, 0.1), rgba(138, 43, 226, 0.15));
+    color: #00d2ff; 
+    border: 1px solid rgba(0, 210, 255, 0.4);
+    border-bottom-left-radius: 2px; /* Sharp corner for texting tail */
+    text-shadow: 0 0 5px rgba(0, 210, 255, 0.4);
+}
+
+/* ---  THE INPUT AREA --- */
+.chat-input-area {
+    display: flex;
+    gap: 10px;
+}
+
+#chatInput {
+    flex-grow: 1;
+    background-color: #2d2f36;
+    border: 1px solid #555;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 6px;
+    outline: none;
+}
+
+#chatInput:focus {
+    border-color: #8a2be2;
+    box-shadow: 0 0 8px rgba(138, 43, 226, 0.6);
+}
+
+.cyber-button {
+    background-color: #2a2c33;
+    color: #00d2ff;
+    border: 1px solid #00d2ff;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.cyber-button:hover {
+    background-color: #00d2ff;
+    color: #121317;
+    box-shadow: 0 0 15px #00d2ff;
 }
