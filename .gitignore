@@ -33,5 +33,6 @@ build/
 .vscode/
 
 .fake
-
+application-sectret.properties
+application.properties
 .env
